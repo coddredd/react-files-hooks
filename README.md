@@ -1,6 +1,6 @@
 # **react-file-operations**
 ## Usage
-```
+```ecmascript 6
 import { useUploader, useDownloader } from 'react-file-operations';
 import data from './data';
 
