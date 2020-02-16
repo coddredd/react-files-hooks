@@ -1,7 +1,8 @@
-# **react-file-operations**
+# **react-files-hooks**
 ## Usage
+
 ```ecmascript 6
-import { useUploader, useDownloader } from 'react-file-operations';
+import { useUploader, useDownloader } from 'react-files-hooks';
 import data from './data';
 
 function SomeComponent() {
