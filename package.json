@@ -1,0 +1,43 @@
+{
+  "name": "react-file-operations",
+  "version": "1.0.0",
+  "description": "React hooks for downloading and uploading files in the browsers",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "react-scripts test"
+  },
+  "keywords": [
+    "react-hooks",
+    "react",
+    "hooks",
+    "download",
+    "upload",
+    "file"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topcodder/react-download-hook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/topcodder/react-download-hook/issues"
+  },
+  "homepage": "https://github.com/topcodder/react-download-hook#readme",
+  "devDependencies": {
+    "@babel/core": "~7.1.6",
+    "@babel/plugin-proposal-class-properties": "~7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "~7.2.0",
+    "@babel/preset-env": "~7.6.0",
+    "@babel/preset-react": "~7.0.0",
+    "babel-loader": "~8.0.4",
+    "babel-jest": "~24.9.0",
+    "jest": "~24.9.0",
+    "react": "~16.8.1",
+    "react-dom": "~16.8.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "author": "Vladyslav Kolotusha",
+  "license": "MIT"
+}
