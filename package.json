@@ -16,12 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/topcodder/react-download-hook.git"
+    "url": "git+https://github.com/coddredd/react-download-hook.git"
   },
   "bugs": {
-    "url": "https://github.com/topcodder/react-download-hook/issues"
+    "url": "https://github.com/coddredd/react-download-hook/issues"
   },
-  "homepage": "https://github.com/topcodder/react-download-hook#readme",
+  "homepage": "https://github.com/coddredd/react-download-hook#readme",
   "devDependencies": {
     "@babel/core": "~7.1.6",
     "@babel/plugin-proposal-class-properties": "~7.5.5",
@@ -38,6 +38,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "author": "Vladyslav Kolotusha",
+  "author": "coddredd",
   "license": "MIT"
 }
