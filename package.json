@@ -1,5 +1,5 @@
 {
-  "name": "react-file-operations",
+  "name": "react-files-hooks",
   "version": "1.0.0",
   "description": "React hooks for downloading and uploading files in the browsers",
   "main": "src/index.js",
