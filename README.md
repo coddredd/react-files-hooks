@@ -40,7 +40,7 @@ function SomeComponent() {
 ### useUploader
 **Parameters**
 * `onSelectFile` - function called after selecting file with file in parameters  (required, function).
-* `isMultiple` - if _true_ there will be possible to select more then one file (not required, boolean, default value - _false_).
+* `isMultiple` - if _true_ there will be possible to select more than one file (not required, boolean, default value - _false_).
 
 **Returns** 
 
