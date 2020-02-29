@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DownloadService.html">DownloadService</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertBase64ToBlob">_convertBase64ToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertByFileReader">_convertByFileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_dataUrlToBlob">_dataUrlToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isBigBase64">_isBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isPayloadBase64">_isPayloadBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_save">_save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBase64">_saveBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBigBase64">_saveBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBlob">_saveBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveByAnchor">_saveByAnchor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#download">download</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useDownloader">useDownloader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useUploader">useUploader</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1><strong>react-files-hooks</strong></h1>
+<h2>Usage</h2>
+<pre class="prettyprint source lang-ecmascript"><code>import { useUploader, useDownloader } from 'react-files-hooks';
+import data from './data';
+
+function SomeComponent() {
+
+  const { uploader, reset } = useUploader({
+    onSelectFile: file => {}, 
+    isMultiple: true 
+  });
+  
+  const downloader = useDownloader({
+    file: data,
+    name: 'some-file.json',
+    type: 'application/json',
+    event: 'click',
+    onDownloaded: () => {},
+    onError: () => {}
+  });
+  
+  return (
+    &lt;div>
+      // Uploading
+      &lt;input id=&quot;input&quot; {...uploader} />
+      &lt;label htmlFor=&quot;input&quot;>Upload&lt;/label>
+      &lt;button onClick={reset}>Reset&lt;/button>
+      
+      // Downloading
+      &lt;button {...downloader}>Download&lt;/button>
+    &lt;/div>
+  )
+  
+}
+</code></pre>
+<h2>API</h2>
+<h3>useUploader</h3>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>onSelectFile</code> - function called after selecting file with file in parameters  (required, function).</li>
+<li><code>isMultiple</code> - if <em>true</em> there will be possible to select more then one file (not required, boolean, default value - <em>false</em>).</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Object with properties</p>
+<ul>
+<li><code>uploader</code> - object that should be inserted in an input as props.</li>
+<li><code>reset</code> - function that reset input with file.</li>
+</ul>
+<h3>useDownloader</h3>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>data</code> - data for downloading (required, function).</li>
+<li><code>name</code> - Name of downloaded file (not required, string, default value - <em>file</em>).</li>
+<li><code>type</code> - Type of downloaded file (not required, string, default value - <em>application/json</em>).</li>
+<li><code>event</code> - Event triggered downloading (not required, 'string', default value - <em>click</em>).</li>
+<li><code>onDownloaded</code> - function called after successful downloading (not required, function).</li>
+<li><code>onError</code> - function called in case of error (not required, function).</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><code>downloader</code> - object that should be inserted in an html element as props.</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Feb 29 2020 01:13:45 GMT+0200 (Eastern European Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

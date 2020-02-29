@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>hooks/useDownloader.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DownloadService.html">DownloadService</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertBase64ToBlob">_convertBase64ToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertByFileReader">_convertByFileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_dataUrlToBlob">_dataUrlToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isBigBase64">_isBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isPayloadBase64">_isPayloadBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_save">_save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBase64">_saveBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBigBase64">_saveBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBlob">_saveBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveByAnchor">_saveByAnchor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#download">download</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useDownloader">useDownloader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useUploader">useUploader</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">hooks/useDownloader.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useRef, useCallback, useEffect, MutableRefObject } from 'react';
+
+import { defaultConfig, errorMessages } from '../constants';
+import { DownloadService } from '../download-service/download.service';
+
+const { defaultType, defaultEvent } = defaultConfig;
+
+/**
+ * Hook for downloading data
+ * @param data {string|Object} Downloaded data
+ * @param name {string} Name of downloaded data
+ * @param type {string} Type of downloaded data
+ * @param onDownloaded {function} Function is called after successful downloading
+ * @param onError {function} Function is called after failed downloading
+ * @param event {string} Event that triggers downloading
+ * @return {{ref: MutableRefObject&lt;HTMLElement>}} Object for inserting to html element
+ */
+export function useDownloader(
+  { data, name, type = defaultType, event = defaultEvent, onDownloaded, onError } = {}
+) {
+
+  /**
+   * Reference to trigger (HTMLElement)
+   */
+  const triggerRef = useRef(null);
+
+  /**
+   * Handler for started downloading
+   */
+  const onDownloadingTriggered = useCallback(async () => {
+    try {
+      if (data) {
+        await DownloadService.getInstance().download(data, name, type);
+        if (onDownloaded &amp;&amp; typeof onDownloaded === 'function') onDownloaded();
+      } else onError(new Error(errorMessages.noData));
+    } catch (e) {
+      onError(e);
+    }
+  }, [data, name, type, onDownloaded, onError]);
+
+  /**
+   * Hook for adding/removing trigger listener
+   */
+  useEffect(() => {
+    if (triggerRef.current) triggerRef.current.addEventListener(event, onDownloadingTriggered);
+    return () => {
+      if (triggerRef.current) triggerRef.current.removeEventListener(event, onDownloadingTriggered);
+    };
+  }, [triggerRef, event, onDownloadingTriggered]);
+
+  return { ref: triggerRef };
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Feb 29 2020 01:13:45 GMT+0200 (Eastern European Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

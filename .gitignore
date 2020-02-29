@@ -4,6 +4,7 @@ dist
 .rts2_cache_*
 .idea/
 package-lock.json
+out/
 
 # Logs
 logs

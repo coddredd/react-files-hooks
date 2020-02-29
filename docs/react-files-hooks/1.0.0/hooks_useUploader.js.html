@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>hooks/useUploader.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DownloadService.html">DownloadService</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertBase64ToBlob">_convertBase64ToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_convertByFileReader">_convertByFileReader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_dataUrlToBlob">_dataUrlToBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isBigBase64">_isBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_isPayloadBase64">_isPayloadBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_save">_save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBase64">_saveBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBigBase64">_saveBigBase64</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveBlob">_saveBlob</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#_saveByAnchor">_saveByAnchor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DownloadService.html#download">download</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useDownloader">useDownloader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#useUploader">useUploader</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">hooks/useUploader.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useRef, useCallback, useEffect, MutableRefObject } from 'react';
+
+import { errorMessages } from '../constants';
+
+/**
+ * Hook for uploading files
+ * @param onSelectFile {function} Function is called after uploading with uploaded file
+ * @param onError {function} Function is called after failed downloading
+ * @param isMultiple {boolean} Indicator for count of uploaded files
+ * @param maxFiles {number} Limit for maximum selected files
+ * @param maxSize {number} Limit for maximum size of file
+ * @param validTypes {Array&lt;string>} Set of valid types for files
+ * @return {{uploader: {ref: MutableRefObject&lt;HTMLInputElement>}, reset: function}} Object for inserting to html element
+ */
+export function useUploader({ onSelectFile, onError, isMultiple = true, maxFiles, maxSize, validTypes } = {}) {
+
+  /**
+   * Reference to input
+   */
+  const inputRef = useRef(null);
+
+  /**
+   * Handle error
+   */
+  const handleError = useCallback((message) => {
+    reset();
+    if (onError &amp;&amp; typeof onError === 'function') return onError(new Error(message));
+  }, [onError]);
+
+  /**
+   * Check validity of files
+   */
+  const isInvalidType = useCallback(files => {
+    if (validTypes) {
+      for (let i = 0; i &lt; files.length; i++) {
+        const file = files[i];
+        if (!validTypes.find(type => file.type === type)) return file;
+      }
+    }
+  }, [validTypes]);
+
+  /**
+   * Check max size of files
+   */
+  const isMaxSize = useCallback(files => {
+    if (maxSize) {
+      for (let i = 0; i &lt; files.length; i++) {
+        const file = files[i];
+        if (file.size > maxSize) return file;
+      }
+    }
+  }, [maxSize]);
+
+  /**
+   * Handler for input changes
+   */
+  const onChange = useCallback(() => {
+    const { files } = inputRef.current;
+    if (files &amp;&amp; files.length) {
+      if (files.length > maxFiles) return handleError(errorMessages.amount + maxFiles);
+      const fileWithMaxSize = isMaxSize(files);
+      if (fileWithMaxSize) return handleError(fileWithMaxSize.name + errorMessages.size + maxSize);
+      const fileWithInvalidType = isInvalidType(files);
+      if (fileWithInvalidType) return handleError(fileWithInvalidType.name + errorMessages.type + fileWithInvalidType.type);
+      const file = files[0];
+      if (onSelectFile &amp;&amp; typeof onSelectFile === 'function') return onSelectFile(isMultiple ? files : file);
+    } else return handleError(errorMessages.existingFile);
+  }, [inputRef, onSelectFile, isMultiple, handleError, isInvalidType, isMaxSize, maxFiles, maxSize]);
+
+  /**
+   * Reset input value
+   */
+  const reset = useCallback(() => {
+    if (inputRef.current) inputRef.current.value = '';
+  }, [inputRef]);
+
+  /**
+   * Hook for adding/removing input listener
+   */
+  useEffect(() => {
+    const element = inputRef.current;
+    if (element) {
+      element.setAttribute('multiple', isMultiple);
+      element.setAttribute('type', 'file');
+      element.addEventListener('change', onChange);
+    }
+    return () => {
+      if (element) element.removeEventListener('change', onChange);
+    };
+  }, [inputRef, onChange, isMultiple]);
+
+  return {
+    uploader: { ref: inputRef },
+    reset
+  };
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Feb 29 2020 01:13:45 GMT+0200 (Eastern European Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
