@@ -6,4 +6,4 @@ export {
   useDownloader,
   useUploader,
   DownloadService
-}
+};

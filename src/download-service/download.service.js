@@ -140,13 +140,13 @@ export class DownloadService {
    * @param url - URL of converted downloaded data
    * @private
    */
-  _saveByLocationForSafari = url => {
+  _saveByLocationForSafari(url) {
     const urlWithoutBase64 = url.replace(CONTANTS.BASE_64_REGEX, CONTANTS.DEFAULT_TYPE);
     if (!window.open(urlWithoutBase64)) {
       if (window.confirm(CONTANTS.CONFIRM_TEXT)) window.location.href = urlWithoutBase64;
     }
     return true;
-  };
+  }
 
   /**
    * Finish downloading by iframe
@@ -154,12 +154,12 @@ export class DownloadService {
    * @param winMode - Indicator showing data has been converted by window.URL
    * @private
    */
-  _saveByIframe = (url, winMode) => {
+  _saveByIframe(url, winMode) {
     let iframe = document.createElement('iframe');
     document.body.appendChild(iframe);
     iframe.src = winMode ? url : 'data:' + url.replace(CONTANTS.BASE_64_REGEX, CONTANTS.DEFAULT_TYPE);
     setTimeout(() => document.body.removeChild(iframe), 333);
-  };
+  }
 
   /**
    * Convert blob to base64 using FileReader
@@ -214,7 +214,9 @@ export class DownloadService {
    * @return {boolean}
    * @private
    */
-  _isSafari = () => CONTANTS.SAFARI_REGEX.test(navigator.userAgent);
+  _isSafari() {
+    return CONTANTS.SAFARI_REGEX.test(navigator.userAgent);
+  }
 
 }
 

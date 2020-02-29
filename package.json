@@ -1,6 +1,6 @@
 {
   "name": "react-files-hooks",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "description": "React hooks for downloading and uploading files in the browsers",
   "main": "src/index.js",
   "files": ["src/"],
@@ -8,7 +8,8 @@
     "lint": "npx eslint src/",
     "test": "jest",
     "test:watch": "jest --watch",
-    "doc": "./node_modules/.bin/jsdoc src/**/*.js -c docs.config.js"
+    "doc": "./node_modules/.bin/jsdoc src/**/*.js -c docs.config.js",
+    "prepublish": "npm run lint && npm test && npm run doc"
   },
   "keywords": [
     "react-hooks",
