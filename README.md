@@ -47,4 +47,4 @@ function SomeComponent() {
 **https://coddredd.github.io/react-files-hooks/module-Uploader.html**
 
 ### useDownloader
-**https://coddredd.github.io/react-files-hooks/module-Downloader.htm**l
+**https://coddredd.github.io/react-files-hooks/module-Downloader.html**
