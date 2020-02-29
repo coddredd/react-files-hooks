@@ -5,6 +5,7 @@ dist
 .idea/
 package-lock.json
 out/
+.DS_Store
 
 # Logs
 logs

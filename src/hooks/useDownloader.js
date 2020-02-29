@@ -52,9 +52,10 @@ export function useDownloader(
    * Hook for adding/removing trigger listener
    */
   useEffect(() => {
-    if (triggerRef.current) triggerRef.current.addEventListener(event, onDownloadingTriggered);
+    const element = triggerRef.current;
+    if (element) element.addEventListener(event, onDownloadingTriggered);
     return () => {
-      if (triggerRef.current) triggerRef.current.removeEventListener(event, onDownloadingTriggered);
+      if (element) element.removeEventListener(event, onDownloadingTriggered);
     };
   }, [triggerRef, event, onDownloadingTriggered]);
 

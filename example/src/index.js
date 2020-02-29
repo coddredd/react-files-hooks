@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { useUploader } from './hooks/useUploader';
-import { useDownloader } from './hooks/useDownloader';
+import { useUploader, useDownloader } from 'react-files-hooks';
 
 export function App() {
 
@@ -17,7 +15,7 @@ export function App() {
     name: 'some-file',
     type: 'application/json',
     event: 'click',
-    onDownloaded: () => console.log('downloade'),
+    onDownloaded: () => console.log('download'),
     onError: error => console.log(error)
   });
 

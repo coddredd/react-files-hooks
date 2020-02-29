@@ -38,12 +38,19 @@ export function useUploader({ onSelectFile, onError, isMultiple = true, maxFiles
   const inputRef = useRef(null);
 
   /**
+   * Reset input value
+   */
+  const reset = useCallback(() => {
+    if (inputRef.current) inputRef.current.value = '';
+  }, [inputRef]);
+
+  /**
    * Handle error
    */
   const handleError = useCallback((message) => {
     reset();
     if (onError && typeof onError === 'function') return onError(new Error(message));
-  }, [onError]);
+  }, [onError, reset]);
 
   /**
    * Check validity of files
@@ -84,13 +91,6 @@ export function useUploader({ onSelectFile, onError, isMultiple = true, maxFiles
       if (onSelectFile && typeof onSelectFile === 'function') return onSelectFile(isMultiple ? files : file);
     } else return handleError(errorMessages.existingFile);
   }, [inputRef, onSelectFile, isMultiple, handleError, isInvalidType, isMaxSize, maxFiles, maxSize]);
-
-  /**
-   * Reset input value
-   */
-  const reset = useCallback(() => {
-    if (inputRef.current) inputRef.current.value = '';
-  }, [inputRef]);
 
   /**
    * Hook for adding/removing input listener
