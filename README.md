@@ -1,4 +1,7 @@
 # **react-files-hooks**
+## Installation
+`npm i --save react-files-hooks`
+
 ## Usage
 
 ```ecmascript 6
@@ -41,7 +44,7 @@ function SomeComponent() {
 
 ## API
 ### useUploader
-
+**https://coddredd.github.io/react-files-hooks/module-Uploader.html**
 
 ### useDownloader
-
+**https://coddredd.github.io/react-files-hooks/module-Downloader.htm**l
