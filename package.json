@@ -1,6 +1,6 @@
 {
   "name": "react-files-hooks",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React hooks for downloading and uploading files in the browsers",
   "main": "src/index.js",
   "files": ["src/"],
