@@ -43,5 +43,5 @@ function SomeComponent() {
 ```
 
 ## API
-###[useUploader](https://coddredd.github.io/react-files-hooks/module-Uploader.html)
-###[useDownloader](https://coddredd.github.io/react-files-hooks/module-Downloader.html)
+### [useUploader](https://coddredd.github.io/react-files-hooks/module-Uploader.html)
+### [useDownloader](https://coddredd.github.io/react-files-hooks/module-Downloader.html)
