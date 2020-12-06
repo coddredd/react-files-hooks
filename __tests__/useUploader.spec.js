@@ -11,7 +11,6 @@ jest.mock('react', () => {
         value: 'value'
       }
     }),
-    useCallback: func => func,
     useEffect: func => {
       const result = func();
       result();

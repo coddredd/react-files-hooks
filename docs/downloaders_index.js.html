@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>downloaders/index.js - React Files Hooks</title>
+    
+    <meta name="description" content="Open source React library for upload and download files that works in all browsers." />
+    
+        <meta name="keywords" content="React hooks files upload download" />
+        <meta name="keyword" content="React hooks files upload download" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/coddredd/react-download-hook.git" target="_blank" class="menu-item" id="website_link" >Project GitHub</a></h2><h3>Modules</h3><ul><li><a href="module-Downloader.html">Downloader</a><ul class='methods'><li data-type='method'><a href="module-Downloader.html#.useDownloader">useDownloader</a></li></ul></li><li><a href="module-Specific%2520Downloaders.html">Specific Downloaders</a><ul class='methods'><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useBinaryDownloader">useBinaryDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useBMPDownloader">useBMPDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useFormDataDownloader">useFormDataDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useGIFDownloader">useGIFDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useJPEGDownloader">useJPEGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useJSONDownloader">useJSONDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useMSExcelDownloader">useMSExcelDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useMSWordDownloader">useMSWordDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.usePDFDownloader">usePDFDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.usePNGDownloader">usePNGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useSVGDownloader">useSVGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useTextDownloader">useTextDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useZIPDownloader">useZIPDownloader</a></li></ul></li><li><a href="module-Specific%2520Uploaders.html">Specific Uploaders</a><ul class='methods'><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useAudioUploader">useAudioUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useBinaryUploader">useBinaryUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useFontUploader">useFontUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useFormDataUploader">useFormDataUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useImageUploader">useImageUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useJSONUploader">useJSONUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMediaUploader">useMediaUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useModelUploader">useModelUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMSExcelUploader">useMSExcelUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMSWordUploader">useMSWordUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.usePDFUploader">usePDFUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useTextUploader">useTextUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useVideoUploader">useVideoUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useZIPUploader">useZIPUploader</a></li></ul></li><li><a href="module-Uploader.html">Uploader</a><ul class='methods'><li data-type='method'><a href="module-Uploader.html#.useUploader">useUploader</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="DownloadService.html">DownloadService</a><ul class='methods'><li data-type='method'><a href="DownloadService.html#download">download</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#DownloadConfig">DownloadConfig</a></li><li><a href="global.html#DownloadFn">DownloadFn</a></li><li><a href="global.html#DownloadManager">DownloadManager</a></li><li><a href="global.html#DownloadRefContainer">DownloadRefContainer</a></li><li><a href="global.html#ManualDownloadConfig">ManualDownloadConfig</a></li><li><a href="global.html#SpecificDownloadConfig">SpecificDownloadConfig</a></li><li><a href="global.html#SpecificDownloadFn">SpecificDownloadFn</a></li><li><a href="global.html#SpecificDownloadManager">SpecificDownloadManager</a></li><li><a href="global.html#SpecificManualDownloadConfig">SpecificManualDownloadConfig</a></li><li><a href="global.html#SpecificUploadConfig">SpecificUploadConfig</a></li><li><a href="global.html#UploadConfig">UploadConfig</a></li><li><a href="global.html#UploadManager">UploadManager</a></li><li><a href="global.html#UploadRefContainer">UploadRefContainer</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">downloaders/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useDownloader } from '../hooks/useDownloader';
+import { MIME_TYPES } from '../constants';
+
+/** @module Specific Downloaders */
+
+/**
+ * Specific manual downloading config
+ * @interface
+ * @global
+ * @typedef SpecificManualDownloadConfig
+ * @property data {string|Object} - Downloaded data. Required.
+ * @property name {string} - Name of downloaded data. Optional. Default - "file"
+ */
+
+/**
+ * Specific function to download file
+ * @interface
+ * @global
+ * @typedef {function} SpecificDownloadFn
+ * @param config {SpecificManualDownloadConfig} Specific manual downloading config
+ * @return {Promise&lt;void>} Promises resolves after downloading file.
+ */
+
+/**
+ * Specific object to manage downloading files
+ * @interface
+ * @global
+ * @typedef SpecificDownloadManager
+ * @property {DownloadRefContainer} downloader - Object for inserting to html element.
+ * @property {SpecificDownloadFn} download - Specific function to download file.
+ */
+
+/**
+ * Specific downloading config
+ * @interface
+ * @global
+ * @typedef SpecificDownloadConfig
+ * @property data {string|Object} - Downloaded data. Required.
+ * @property name {string} - Name of downloaded data. Optional. Default - "file"
+ * @property event {string} - Event that triggers downloading. Optional. Default - "click"
+ */
+
+/**
+ * Hook for downloading bmp images
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading bmp images
+ * @function
+ */
+export const useBMPDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.BMP
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.BMP })
+    };
+
+};
+
+/**
+ * Hook for downloading gif images
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading gif images
+ * @function
+ */
+export const useGIFDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.GIF
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.GIF })
+    };
+
+};
+
+/**
+ * Hook for downloading jpeg images
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading jpeg images
+ * @function
+ */
+export const useJPEGDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.JPEG
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.JPEG })
+    };
+
+};
+
+/**
+ * Hook for downloading png images
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading png images
+ * @function
+ */
+export const usePNGDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.PNG
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.PNG })
+    };
+
+};
+
+/**
+ * Hook for downloading svg images
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading svg images
+ * @function
+ */
+export const useSVGDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.SVG
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.SVG })
+    };
+
+};
+
+/**
+ * Hook for downloading Microsoft Word files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading Microsoft Word files
+ * @function
+ */
+export const useMSWordDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.MS_WORD
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.MS_WORD })
+    };
+
+};
+
+/**
+ * Hook for downloading Microsoft Excel files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading Microsoft Word files
+ * @function
+ */
+export const useMSExcelDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.MS_EXCEL
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.MS_EXCEL })
+    };
+
+};
+
+/**
+ * Hook for downloading ZIP archive
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading ZIP archive
+ * @function
+ */
+export const useZIPDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.ZIP
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.ZIP })
+    };
+
+};
+
+/**
+ * Hook for downloading PDF files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading PDF files
+ * @function
+ */
+export const usePDFDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.PDF
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.PDF })
+    };
+
+};
+
+/**
+ * Hook for downloading JSON files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading JSON files
+ * @function
+ */
+export const useJSONDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.JSON
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.JSON })
+    };
+
+};
+
+/**
+ * Hook for downloading binary files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading binary files
+ * @function
+ */
+export const useBinaryDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.BINARY
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.BINARY })
+    };
+
+};
+
+/**
+ * Hook for downloading text files
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading text files
+ * @function
+ */
+export const useTextDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.PLAIN_TEXT
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.PLAIN_TEXT })
+    };
+
+};
+
+/**
+ * Hook for downloading form-data
+ * @param options {SpecificDownloadConfig} - Specific downloading config
+ * @return {SpecificDownloadManager} - Object to manage downloading form-data
+ * @function
+ */
+export const useFormDataDownloader = (options = {}) => {
+
+    const result = useDownloader({
+        ...options,
+        type: MIME_TYPES.FORM_DATA
+    });
+
+    return {
+        ...result,
+        download: (config) => result.download({ ...config, type: MIME_TYPES.FORM_DATA })
+    };
+
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Dec 06 2020 12:43:59 GMT+0200 (Eastern European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

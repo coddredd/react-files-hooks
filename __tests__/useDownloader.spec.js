@@ -9,7 +9,6 @@ jest.mock('react', () => {
         removeEventListener: jest.fn()
       }
     }),
-    useCallback: func => func,
     useEffect: func => {
       const result = func();
       result();
@@ -17,9 +16,11 @@ jest.mock('react', () => {
   }
 });
 
+jest.mock('../src/download-service/download.service');
+
 describe('Downloader hook', () => {
 
-  let downloadMock, failedDownloadMock, data, name, onDownloaded, onError, error;
+  let downloadMock, failedDownloadMock, data, name, onDownloaded, onError, error, downloadService;
 
   beforeEach(() => {
     error = new Error('error');
@@ -30,28 +31,32 @@ describe('Downloader hook', () => {
     data = { data: 'data' };
     name = 'test';
 
-    DownloadService.getInstance = jest.fn().mockImplementation(() => {
-      return { download: downloadMock }
+    DownloadService.mockImplementation(() => {
+      return {
+        download: downloadMock
+      };
     });
   });
 
   it('should download file', (done) => {
     useDownloader({data, name, onDownloaded, onError});
     setTimeout(() => {
-      expect(downloadMock).toHaveBeenCalledWith(data, name, 'application/json');
+      expect(downloadMock).toHaveBeenCalledWith(data, name, 'text/plain');
       expect(onDownloaded).toHaveBeenCalledWith();
       done();
     }, 100)
   });
 
   it('should not download file if downloading failed', (done) => {
-    DownloadService.getInstance = jest.fn().mockImplementation(() => {
-      return { download: failedDownloadMock }
+    DownloadService.mockImplementation(() => {
+      return {
+        download: failedDownloadMock
+      };
     });
 
     useDownloader({data, name, onDownloaded, onError});
     setTimeout(() => {
-      expect(failedDownloadMock).toHaveBeenCalledWith(data, name, 'application/json');
+      expect(failedDownloadMock).toHaveBeenCalledWith(data, name, 'text/plain');
       expect(onDownloaded).not.toHaveBeenCalled();
       expect(onError).toHaveBeenCalledWith(error);
       done();
@@ -71,7 +76,7 @@ describe('Downloader hook', () => {
   it('should not download file without callback', (done) => {
     useDownloader({data, name, onError});
     setTimeout(() => {
-      expect(downloadMock).toHaveBeenCalledWith(data, name, 'application/json');
+      expect(downloadMock).toHaveBeenCalledWith(data, name, 'text/plain');
       expect(onDownloaded).not.toHaveBeenCalled();
       done();
     }, 100)

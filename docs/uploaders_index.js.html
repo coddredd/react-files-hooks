@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>uploaders/index.js - React Files Hooks</title>
+    
+    <meta name="description" content="Open source React library for upload and download files that works in all browsers." />
+    
+        <meta name="keywords" content="React hooks files upload download" />
+        <meta name="keyword" content="React hooks files upload download" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/coddredd/react-download-hook.git" target="_blank" class="menu-item" id="website_link" >Project GitHub</a></h2><h3>Modules</h3><ul><li><a href="module-Downloader.html">Downloader</a><ul class='methods'><li data-type='method'><a href="module-Downloader.html#.useDownloader">useDownloader</a></li></ul></li><li><a href="module-Specific%2520Downloaders.html">Specific Downloaders</a><ul class='methods'><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useBinaryDownloader">useBinaryDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useBMPDownloader">useBMPDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useFormDataDownloader">useFormDataDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useGIFDownloader">useGIFDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useJPEGDownloader">useJPEGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useJSONDownloader">useJSONDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useMSExcelDownloader">useMSExcelDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useMSWordDownloader">useMSWordDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.usePDFDownloader">usePDFDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.usePNGDownloader">usePNGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useSVGDownloader">useSVGDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useTextDownloader">useTextDownloader</a></li><li data-type='method'><a href="module-Specific%252520Downloaders.html#.useZIPDownloader">useZIPDownloader</a></li></ul></li><li><a href="module-Specific%2520Uploaders.html">Specific Uploaders</a><ul class='methods'><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useAudioUploader">useAudioUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useBinaryUploader">useBinaryUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useFontUploader">useFontUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useFormDataUploader">useFormDataUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useImageUploader">useImageUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useJSONUploader">useJSONUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMediaUploader">useMediaUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useModelUploader">useModelUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMSExcelUploader">useMSExcelUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useMSWordUploader">useMSWordUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.usePDFUploader">usePDFUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useTextUploader">useTextUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useVideoUploader">useVideoUploader</a></li><li data-type='method'><a href="module-Specific%252520Uploaders.html#.useZIPUploader">useZIPUploader</a></li></ul></li><li><a href="module-Uploader.html">Uploader</a><ul class='methods'><li data-type='method'><a href="module-Uploader.html#.useUploader">useUploader</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="DownloadService.html">DownloadService</a><ul class='methods'><li data-type='method'><a href="DownloadService.html#download">download</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#DownloadConfig">DownloadConfig</a></li><li><a href="global.html#DownloadFn">DownloadFn</a></li><li><a href="global.html#DownloadManager">DownloadManager</a></li><li><a href="global.html#DownloadRefContainer">DownloadRefContainer</a></li><li><a href="global.html#ManualDownloadConfig">ManualDownloadConfig</a></li><li><a href="global.html#SpecificDownloadConfig">SpecificDownloadConfig</a></li><li><a href="global.html#SpecificDownloadFn">SpecificDownloadFn</a></li><li><a href="global.html#SpecificDownloadManager">SpecificDownloadManager</a></li><li><a href="global.html#SpecificManualDownloadConfig">SpecificManualDownloadConfig</a></li><li><a href="global.html#SpecificUploadConfig">SpecificUploadConfig</a></li><li><a href="global.html#UploadConfig">UploadConfig</a></li><li><a href="global.html#UploadManager">UploadManager</a></li><li><a href="global.html#UploadRefContainer">UploadRefContainer</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">uploaders/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useUploader } from '../hooks/useUploader';
+import { MIME_TYPES } from '../constants';
+
+/** @module Specific Uploaders */
+
+/**
+ * Specific uploading config
+ * @interface
+ * @global
+ * @typedef SpecificUploadConfig
+ * @property isMultiple {boolean} - Indicator for count of uploaded files. Optional. Default - true
+ * @property maxFiles {number} - Limit for maximum selected files. Optional.
+ * @property maxSize {number} - Limit for maximum size of file. Optional. Default - 5242880 bytes (5MB)
+ */
+
+/**
+ * Hook for uploading images
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading images
+ * @function
+ */
+export const useImageUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.IMAGE]
+    });
+
+};
+
+/**
+ * Hook for uploading videos
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading videos
+ * @function
+ */
+export const useVideoUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.VIDEO]
+    });
+
+};
+
+/**
+ * Hook for uploading media files (videos and images)
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading media files
+ * @function
+ */
+export const useMediaUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.VIDEO, MIME_TYPES.IMAGE]
+    });
+
+};
+
+/**
+ * Hook for uploading audio files
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading audio files
+ * @function
+ */
+export const useAudioUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.AUDIO]
+    });
+
+};
+
+/**
+ * Hook for uploading PDF files
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading PDF files
+ * @function
+ */
+export const usePDFUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.PDF]
+    });
+
+};
+
+/**
+ * Hook for uploading JSON files
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading JSON files
+ * @function
+ */
+export const useJSONUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.JSON]
+    });
+
+};
+
+/**
+ * Hook for uploading binary files
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading binary files
+ * @function
+ */
+export const useBinaryUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.BINARY]
+    });
+
+};
+
+/**
+ * Hook for uploading text files
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading text files
+ * @function
+ */
+export const useTextUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.TEXT]
+    });
+
+};
+
+/**
+ * Hook for uploading fonts
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading fonts
+ * @function
+ */
+export const useFontUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.FONT]
+    });
+
+};
+
+/**
+ * Hook for uploading models
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading models
+ * @function
+ */
+export const useModelUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.MODEL]
+    });
+
+};
+
+/**
+ * Hook for uploading form-data
+ * @param options {SpecificUploadConfig} - Specific uploading config
+ * @return {UploadManager} - Object to manage uploading form-data
+ * @function
+ */
+export const useFormDataUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.FORM_DATA]
+    });
+
+};
+
+/**
+ * Hook for uploading Microsoft Word files
+ * @param options {SpecificUploadConfig} - Downloading config
+ * @return {UploadManager} - Object to manage uploading Microsoft Word files
+ * @function
+ */
+export const useMSWordUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.MS_WORD]
+    });
+
+};
+
+/**
+ * Hook for uploading Microsoft Excel files
+ * @param options {SpecificUploadConfig} - Downloading config
+ * @return {UploadManager} - Object to manage uploading Microsoft Word files
+ * @function
+ */
+export const useMSExcelUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.MS_EXCEL]
+    });
+
+};
+
+/**
+ * Hook for uploading ZIP archive
+ * @param options {SpecificUploadConfig} - Downloading config
+ * @return {UploadManager} - Object to manage uploading ZIP archive
+ * @function
+ */
+export const useZIPUploader = (options = {}) => {
+
+    return useUploader({
+        ...options,
+        validTypes: [MIME_TYPES.ZIP]
+    });
+
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Dec 06 2020 12:43:59 GMT+0200 (Eastern European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

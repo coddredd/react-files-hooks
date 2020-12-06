@@ -1,9 +1,74 @@
 import { useUploader } from './hooks/useUploader';
 import { useDownloader } from './hooks/useDownloader';
-import { DownloadService } from './download-service/download.service';
+
+import {
+    useJSONDownloader,
+    useZIPDownloader,
+    useTextDownloader,
+    useSVGDownloader,
+    usePNGDownloader,
+    usePDFDownloader,
+    useMSWordDownloader,
+    useMSExcelDownloader,
+    useJPEGDownloader,
+    useGIFDownloader,
+    useFormDataDownloader,
+    useBMPDownloader,
+    useBinaryDownloader
+} from './downloaders';
+
+import {
+    usePDFUploader,
+    useImageUploader,
+    useVideoUploader,
+    useTextUploader,
+    useModelUploader,
+    useMediaUploader,
+    useJSONUploader,
+    useFormDataUploader,
+    useFontUploader,
+    useBinaryUploader,
+    useAudioUploader,
+    useMSExcelUploader,
+    useMSWordUploader,
+    useZIPUploader
+} from './uploaders';
+
+import { MIME_TYPES } from './constants';
+
+const specific = {
+    useJSONDownloader,
+    useZIPDownloader,
+    useTextDownloader,
+    useSVGDownloader,
+    usePNGDownloader,
+    usePDFDownloader,
+    useMSWordDownloader,
+    useMSExcelDownloader,
+    useJPEGDownloader,
+    useGIFDownloader,
+    useFormDataDownloader,
+    useBMPDownloader,
+    useBinaryDownloader,
+    usePDFUploader,
+    useImageUploader,
+    useVideoUploader,
+    useTextUploader,
+    useModelUploader,
+    useMediaUploader,
+    useJSONUploader,
+    useFormDataUploader,
+    useFontUploader,
+    useBinaryUploader,
+    useAudioUploader,
+    useMSExcelUploader,
+    useMSWordUploader,
+    useZIPUploader
+};
 
 export {
-  useDownloader,
-  useUploader,
-  DownloadService
+    useUploader,
+    useDownloader,
+    specific,
+    MIME_TYPES
 };

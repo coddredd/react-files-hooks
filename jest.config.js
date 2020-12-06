@@ -26,7 +26,9 @@ module.exports = {
   ],
   "coverageReporters": ["json", "html", "text"],
   "coverageDirectory": "./report/coverage",
-  "coveragePathIgnorePatterns": ["/node_modules/", "/src/constants.js", "/src/index.js", "/__tests__/jest.init.js"],
+  "coveragePathIgnorePatterns": [
+      "/node_modules/", "/src/constants.js", "/src/index.js", "/src/downloaders", "/src/uploaders", "/__tests__/jest.init.js"
+  ],
   "coverageThreshold": {
     "global": {
       "branches": 10,
