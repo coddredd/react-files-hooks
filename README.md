@@ -61,3 +61,23 @@ function SomeComponent() {
   
 }
 ```
+
+## Reading Data
+
+_react-files-hooks_ uploads files to React, but makes no attempt to provide the data from the file. The JS object [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) is required to parse uploaded file data into a JS object. The `validTypes: []` element properly filters mimetypes when using FileReader.
+
+		onSelectFile: incoming => {
+			const fileReader = new FileReader();
+			fileReader.readAsText(incoming[0], "UTF-8");
+			fileReader.onload = e => {
+				// Do something with the file contents here, like a setState.
+				console.log(JSON.parse(e.target.result));
+			};
+		},
+		onError: error => {
+			console.log(error)
+		},
+		validTypes: ["application/json"]
+
+
+[Here is a codesandbox](https://codesandbox.io/s/read-json-file-and-store-in-var-c3s8k?file=/src/Upload.jsx) with a sample use of `FileReader`.
